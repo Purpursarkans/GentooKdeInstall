@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 
 mount --types proc /proc /mnt/gentoo/proc
 mount --rbind /sys /mnt/gentoo/sys
