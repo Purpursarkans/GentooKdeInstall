@@ -22,3 +22,6 @@
 mkfs.vfat /dev/sda2
 mkfs.ext4 /dev/sda3
 mount /dev/sda3 /mnt/gentoo
+ntpd -q -g
+cd /mnt/gentoo
+wget https://mirror.yandex.ru/gentoo-distfiles/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20200401T214502Z.tar.xz
