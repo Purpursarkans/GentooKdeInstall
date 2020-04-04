@@ -16,6 +16,7 @@
   echo 3;
   echo;
   echo;
+  echo w;
 ) | fdisk /dev/sda
 
 mkfs.vfat /dev/sda2
