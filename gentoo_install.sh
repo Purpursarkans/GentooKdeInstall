@@ -29,3 +29,4 @@ wget https://mirror.yandex.ru/gentoo-distfiles/releases/amd64/autobuilds/current
 cp stage3-amd64-20200401T214502Z.tar.xz stage3-amd64-20200401T214502Z.tar.bz2
 tar xpvf stage3-amd64-20200401T214502Z.tar.bz2 --xattrs-include='*.*' --numeric-owner
 
+echo 1
