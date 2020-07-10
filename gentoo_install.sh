@@ -30,7 +30,7 @@ ntpd -q -g
 
 cd /mnt/gentoo
 wget https://mirror.yandex.ru/gentoo-distfiles/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20200708T103427Z.tar.xz
-tar xpf stage3-amd64-20200401T214502Z.tar.xz --xattrs-include='*.*' --numeric-owner
+tar xpvf stage3-*.tar.bz2 --xattrs-include='*.*' --numeric-owner
 
 
 mount --types proc /proc /mnt/gentoo/proc
