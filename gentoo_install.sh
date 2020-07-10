@@ -16,6 +16,9 @@
   echo 3;
   echo;
   echo;
+  echo t;
+  echo 2;
+  echo 1;
   echo w;
 ) | fdisk /dev/sda
 
