@@ -32,6 +32,9 @@ cd /mnt/gentoo
 wget https://mirror.yandex.ru/gentoo-distfiles/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20200708T103427Z.tar.xz
 tar xpf stage3-amd64-20200708T103427Z.tar.xz --xattrs-include='*.*' --numeric-owner
 
+echo -e "MAKEOPTS=\"-j4\"\n\nGENTOO_MIRRORS=\"https://mirror.yandex.ru/gentoo-distfiles/\"" >> /mnt/gentoo/etc/portage/make.conf
+
+mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf
 
 mount --types proc /proc /mnt/gentoo/proc
 mount --rbind /sys /mnt/gentoo/sys
