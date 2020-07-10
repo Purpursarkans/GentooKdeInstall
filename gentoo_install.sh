@@ -22,7 +22,7 @@
   echo w;
 ) | fdisk /dev/sda
 
-mkfs.vfat /dev/sda2
+mkfs.fat -F 32 /dev/sda2
 mkfs.ext4 /dev/sda3
 mount /dev/sda3 /mnt/gentoo
 ntpd -q -g
