@@ -61,7 +61,7 @@ eselect profile set 20
 echo -e "WARNING!!!\ninstall sleep for 30 sec, check list"
 sleep 30
 
-emerge --ask --verbose --update --deep --mewuse @world
+emerge --ask --verbose --update --deep --newuse @world
 
 echo "Europe/Saratov" > /etc/timezone
 emerge --config sys-libs/timezone-data
@@ -83,3 +83,4 @@ setfont cyr-sun16
 emerge --ask sys-kernel/gentoo-sources
 
 echo -e "/dev/sda2	/boot	vfat	defaults	0 2" >> /etc/fstab
+genkernel all
