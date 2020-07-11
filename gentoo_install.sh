@@ -80,7 +80,9 @@ loadkeys ru
 setfont cyr-sun16
 
 
-emerge --ask sys-kernel/gentoo-sources
+emerge sys-kernel/gentoo-sources
+emerge sys-kernel/genkernel
+emerge --verbose --update --deep --newuse @world
 
 echo -e "/dev/sda2	/boot	vfat	defaults	0 2" >> /etc/fstab
 genkernel all
