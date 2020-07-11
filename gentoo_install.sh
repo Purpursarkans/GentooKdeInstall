@@ -59,8 +59,21 @@ esecelt profile list
 eselect profile set 20
 
 echo -e "WARNING!!!\ninstall sleep for 30 sec, check list"
+sleep 30
 
 emerge --ask --verbose --update --deep --mewuse @world
 
 echo "Europe/Saratov" > /etc/timezone
+emerge --config sys-libs/timezone-data
+
+echo -e "en_US.UTF-8 UTF-8\nru_RU.UTF-8 UTF-8" >> /etc/locale.gen
+locale-gen
+
+eselect locale list
+eselect locale set 5
+
+echo -e "WARNING!!!\ninstall sleep for 30 sec, check list"
+sleep 30
+
+env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
 
