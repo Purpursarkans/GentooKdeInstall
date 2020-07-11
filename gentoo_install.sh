@@ -96,3 +96,7 @@ echo -d "hostname=\"potato-pc\"" >> /etc/conf.d/hostname
 
 emerge --noreplace net-misc/netifrc
 
+cd /etc/init.d
+ln -s net.lo net.enp6s0 net.wlp7s0
+rc-update add net.enp6s0 net.wlp7s0 default
+
