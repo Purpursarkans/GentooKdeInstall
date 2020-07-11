@@ -44,3 +44,23 @@ mount --rbind /sys /mnt/gentoo/sys
 mount --make-rslave /mnt/gentoo/sys
 mount --rbind /dev /mnt/gentoo/dev
 mount --make-rslave /mnt/gentoo/dev 
+
+
+
+chroot /mnt/gentoo /bin/bash
+source /etc/profile
+export PS1="(chroot) ${PS1}"
+
+mount /dev/sda2 /boot
+emerge-webrsync
+emerge --sync --quiet
+
+esecelt profile list
+eselect profile set 20
+
+echo -e "WARNING!!!\ninstall sleep for 30 sec, check list"
+
+emerge --ask --verbose --update --deep --mewuse @world
+
+
+
