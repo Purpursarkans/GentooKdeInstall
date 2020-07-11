@@ -91,7 +91,7 @@ genkernel all
 
 echo -e "/dev/sda2   /boot        ext2    defaults,noatime     0 2\n/dev/sda3   /            ext4    noatime              0 1" >> /etc/fstab
 
-rm /etc/conf.d/hostname
+rm -f /etc/conf.d/hostname
 echo -d "hostname=\"potato-pc\"" >> /etc/conf.d/hostname
 
 emerge --noreplace net-misc/netifrc
@@ -99,4 +99,11 @@ emerge --noreplace net-misc/netifrc
 cd /etc/init.d
 ln -s net.lo net.enp6s0 net.wlp7s0
 rc-update add net.enp6s0 net.wlp7s0 default
+
+rm -f /etc/conf.d/keymaps
+echo -e "keymap=\"us\"\nwindowkeys=\"YES\"\nextended_keymaps=\"ru\"\ndumpkeys_charset=\"\"\nfix_euro=\"NO\"" >> /etc/conf.d/keymaps
+
+rm -f /etc/conf.d/consolefont
+echo -e "consolefont=\"cyr-sun16\"" >> /etc/conf.d/consolefont
+
 
