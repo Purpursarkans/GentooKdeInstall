@@ -55,7 +55,7 @@ mount /dev/sda2 /boot
 emerge-webrsync
 emerge --sync --quiet
 
-esecelt profile list
+eselect profile list
 eselect profile set 20
 
 echo -e "WARNING!!!\ninstall sleep for 30 sec, check list"
@@ -79,6 +79,7 @@ env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
 loadkeys ru
 setfont cyr-sun16
 
+echo -e "ACCEPT_LICENSE=\"-* @BINARY-REDISTRIBUTABLE\"" >> /etc/portage/make.conf
 
 emerge sys-kernel/gentoo-sources
 emerge sys-kernel/genkernel
