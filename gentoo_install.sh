@@ -76,4 +76,10 @@ echo -e "WARNING!!!\ninstall sleep for 30 sec, check list"
 sleep 30
 
 env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
+loadkeys ru
+setfont cyr-sun16
 
+
+emerge --ask sys-kernel/gentoo-sources
+
+echo -e "/dev/sda2	/boot	vfat	defaults	0 2" >> /etc/fstab
