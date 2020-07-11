@@ -112,4 +112,6 @@ rc-update add sysklogd default
 emerge --noreplace sys-fs/e2fsprogs sys-fs/dosfstools net-misc/dhcpcd
 emerge net-wireless/iw net-wireless/wpa_supplicant
 
-emerge --verbose --update --deep --newuse @world
+
+echo 'GRUB_PLATFORMS="efi-64"' >> /etc/portage/make.conf
+emerge sys-boot/grub:2
