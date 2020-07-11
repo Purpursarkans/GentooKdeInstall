@@ -110,3 +110,6 @@ emerge app-admin/sysklogd
 rc-update add sysklogd default
 
 emerge --noreplace sys-fs/e2fsprogs sys-fs/dosfstools net-misc/dhcpcd
+emerge net-wireless/iw net-wireless/wpa_supplicant
+
+emerge --verbose --update --deep --newuse @world
