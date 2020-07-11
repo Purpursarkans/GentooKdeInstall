@@ -82,6 +82,7 @@ setfont cyr-sun16
 echo -e "ACCEPT_LICENSE=\"-* @BINARY-REDISTRIBUTABLE\"" >> /etc/portage/make.conf
 
 emerge sys-kernel/gentoo-sources
+emerge --ask sys-kernel/linux-firmware
 emerge sys-kernel/genkernel
 emerge --verbose --update --deep --newuse @world
 
