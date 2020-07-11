@@ -62,5 +62,5 @@ echo -e "WARNING!!!\ninstall sleep for 30 sec, check list"
 
 emerge --ask --verbose --update --deep --mewuse @world
 
-
+echo "Europe/Saratov" > /etc/timezone
 
