@@ -61,7 +61,7 @@ eselect profile set 20
 echo -e "WARNING!!!\ninstall sleep for 30 sec, check list"
 sleep 30
 
-emerge --ask --verbose --update --deep --newuse @world
+emerge --verbose --update --deep --newuse @world
 
 echo "Europe/Saratov" > /etc/timezone
 emerge --config sys-libs/timezone-data
@@ -82,7 +82,7 @@ setfont cyr-sun16
 echo -e "ACCEPT_LICENSE=\"-* @BINARY-REDISTRIBUTABLE\"" >> /etc/portage/make.conf
 
 emerge sys-kernel/gentoo-sources
-emerge --ask sys-kernel/linux-firmware
+emerge sys-kernel/linux-firmware
 emerge sys-kernel/genkernel
 emerge --verbose --update --deep --newuse @world
 
