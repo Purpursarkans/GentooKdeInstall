@@ -81,9 +81,7 @@ setfont cyr-sun16
 
 echo -e "ACCEPT_LICENSE=\"-* @BINARY-REDISTRIBUTABLE\"" >> /etc/portage/make.conf
 
-emerge sys-kernel/gentoo-sources
-emerge sys-kernel/linux-firmware
-emerge sys-kernel/genkernel
+emerge sys-kernel/gentoo-sources sys-kernel/linux-firmware sys-kernel/genkernel
 emerge --verbose --update --deep --newuse @world
 
 echo -e "/dev/sda2	/boot	vfat	defaults	0 2" >> /etc/fstab
@@ -100,6 +98,8 @@ cd /etc/init.d
 ln -s net.lo net.enp6s0 net.wlp7s0
 rc-update add net.enp6s0 net.wlp7s0 default
 
+echo -e "config_enp6s0=\"dhcp\"\nconfig_wlp7s0=\"dhcp\"" >> /etc/conf.d/net
+
 rm -f /etc/conf.d/keymaps
 echo -e "keymap=\"us\"\nwindowkeys=\"YES\"\nextended_keymaps=\"ru\"\ndumpkeys_charset=\"\"\nfix_euro=\"NO\"" >> /etc/conf.d/keymaps
 
@@ -108,3 +108,5 @@ echo -e "consolefont=\"cyr-sun16\"" >> /etc/conf.d/consolefont
 
 emerge app-admin/sysklogd
 rc-update add sysklogd default
+
+emerge --noreplace sys-fs/e2fsprogs sys-fs/dosfstools net-misc/dhcpcd
