@@ -106,4 +106,5 @@ echo -e "keymap=\"us\"\nwindowkeys=\"YES\"\nextended_keymaps=\"ru\"\ndumpkeys_ch
 rm -f /etc/conf.d/consolefont
 echo -e "consolefont=\"cyr-sun16\"" >> /etc/conf.d/consolefont
 
-
+emerge --ask app-admin/sysklogd
+rc-update add sysklogd default
