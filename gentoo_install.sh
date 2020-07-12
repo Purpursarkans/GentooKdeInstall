@@ -114,4 +114,5 @@ emerge net-wireless/iw net-wireless/wpa_supplicant
 
 
 echo 'GRUB_PLATFORMS="efi-64"' >> /etc/portage/make.conf
+emerge --update --deep --newuse @world
 emerge sys-boot/grub:2
