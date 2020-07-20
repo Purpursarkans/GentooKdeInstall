@@ -112,9 +112,6 @@ rc-update add sysklogd default
 emerge --noreplace sys-fs/e2fsprogs sys-fs/dosfstools net-misc/dhcpcd
 emerge net-wireless/iw net-wireless/wpa_supplicant
 
-emerge sys-boot/lilo
+echo 'GRUB_PLATFORMS="efi-64"' >> /etc/portage/make.conf
+emerge --ask sys-boot/grub:2
 
-echo -e "boot=/dev/sda\nprompt\ntimeout=50\ndefault=gentoo\n#image=/boot/vmlinuz-4.9.16-gentoo\nlabel=gentoo\nread-only\nroot=/dev/sda3"
-clear
-echo -e "nano /etc/lilo.conf"
-ls /boot
