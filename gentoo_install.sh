@@ -112,7 +112,6 @@ rc-update add sysklogd default
 emerge --noreplace sys-fs/e2fsprogs sys-fs/dosfstools net-misc/dhcpcd
 emerge net-wireless/iw net-wireless/wpa_supplicant
 
+emerge sys-boot/lilo
 
-echo 'GRUB_PLATFORMS="efi-64"' >> /etc/portage/make.conf
-emerge --update --deep --newuse @world
-emerge sys-boot/grub:2
+echo -e "image=/boot/vmlinuz-4.9.16-gentoo\nlabel=gentoo\nread-only\nroot=/dev/sda3"
