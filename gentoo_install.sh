@@ -114,7 +114,7 @@ emerge net-wireless/iw net-wireless/wpa_supplicant
 
 emerge sys-boot/lilo
 
-echo -e "#image=/boot/vmlinuz-4.9.16-gentoo\nlabel=gentoo\nread-only\nroot=/dev/sda3"
+echo -e "boot=/dev/sda\nprompt\ntimeout=50\ndefault=gentoo\n#image=/boot/vmlinuz-4.9.16-gentoo\nlabel=gentoo\nread-only\nroot=/dev/sda3"
 clear
 echo -e "nano /etc/lilo.conf"
 ls /boot
