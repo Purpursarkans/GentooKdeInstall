@@ -55,8 +55,8 @@ mount /dev/sda2 /boot
 emerge-webrsync
 emerge --sync --quiet
 
-eselect profile list
 eselect profile set 20
+eselect profile list
 
 echo -e "WARNING!!!\ninstall sleep for 30 sec, check list"
 sleep 30
@@ -69,8 +69,8 @@ emerge --config sys-libs/timezone-data
 echo -e "en_US.UTF-8 UTF-8\nru_RU.UTF-8 UTF-8" >> /etc/locale.gen
 locale-gen
 
-eselect locale list
 eselect locale set 5
+eselect locale list
 
 echo -e "WARNING!!!\ninstall sleep for 30 sec, check list"
 sleep 30
