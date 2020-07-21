@@ -90,7 +90,7 @@ genkernel all
 echo -e "/dev/sda2   /boot        ext2    defaults,noatime     0 2\n/dev/sda3   /            ext4    noatime              0 1" >> /etc/fstab
 
 rm -f /etc/conf.d/hostname
-echo -d "hostname=\"potato-pc\"" >> /etc/conf.d/hostname
+echo -e "hostname=\"potato-pc\"" >> /etc/conf.d/hostname
 
 emerge --noreplace net-misc/netifrc
 
