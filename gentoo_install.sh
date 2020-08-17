@@ -1,9 +1,8 @@
 #!/bin/bash
 
-url=https://mirror.yandex.ru/gentoo-distfiles/releases/amd64/autobuilds/current-stage3-amd64/
-archive=stage3-amd64-20200816T214503Z.tar.xz
-
-
+url=https://mirror.yandex.ru/gentoo-distfiles/releases/amd64/autobuilds
+version=latest-stage3-amd64.txt
+archive=$(curl -s $url/$version | grep -v "^#" | cut -d" " -f1)
 
 (
   echo g;
@@ -35,8 +34,8 @@ ntpd -q -g
 
 cd /mnt/gentoo
 
-wget $url$archive
-tar xpf stage3-amd64-20200719T214504Z.tar.xz --xattrs-include='*.*' --numeric-owner
+wget $url/$archive
+tar xpf $(basename $archive) --xattrs-include='*.*' --numeric-owner
 
 
 
@@ -123,5 +122,5 @@ emerge --noreplace sys-fs/e2fsprogs sys-fs/dosfstools net-misc/dhcpcd
 emerge net-wireless/iw net-wireless/wpa_supplicant
 
 echo 'GRUB_PLATFORMS="efi-64"' >> /etc/portage/make.conf
-emerge --ask sys-boot/grub:2
+emerge sys-boot/grub:2
 
