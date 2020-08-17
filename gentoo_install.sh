@@ -36,9 +36,7 @@ cd /mnt/gentoo
 
 wget $url/$archive
 tar xpf $(basename $archive) --xattrs-include='*.*' --numeric-owner
-
-
-
+rm -f $(basename $archive)
 
 
 echo -e "MAKEOPTS=\"-j4\"\n\nGENTOO_MIRRORS=\"https://mirror.yandex.ru/gentoo-distfiles/\"" >> /mnt/gentoo/etc/portage/make.conf
