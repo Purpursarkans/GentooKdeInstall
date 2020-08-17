@@ -1,5 +1,10 @@
 #!/bin/bash
 
+url=https://mirror.yandex.ru/gentoo-distfiles/releases/amd64/autobuilds/current-stage3-amd64/
+archive=stage3-amd64-20200816T214503Z.tar.xz
+
+
+
 (
   echo g;
   echo n;
@@ -29,8 +34,13 @@ mount /dev/sda3 /mnt/gentoo
 ntpd -q -g
 
 cd /mnt/gentoo
-wget https://mirror.yandex.ru/gentoo-distfiles/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20200719T214504Z.tar.xz
+
+wget $url$archive
 tar xpf stage3-amd64-20200719T214504Z.tar.xz --xattrs-include='*.*' --numeric-owner
+
+
+
+
 
 echo -e "MAKEOPTS=\"-j4\"\n\nGENTOO_MIRRORS=\"https://mirror.yandex.ru/gentoo-distfiles/\"" >> /mnt/gentoo/etc/portage/make.conf
 
