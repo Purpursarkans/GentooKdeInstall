@@ -4,6 +4,10 @@ url=https://mirror.yandex.ru/gentoo-distfiles/releases/amd64/autobuilds
 version=latest-stage3-amd64.txt
 archive=$(curl -s $url/$version | grep -v "^#" | cut -d" " -f1)
 
+read -p "write part of install(1 or 2): " rd
+
+label1(){
+
 (
   echo g;
   echo n;
@@ -51,10 +55,12 @@ mount --rbind /sys /mnt/gentoo/sys
 mount --make-rslave /mnt/gentoo/sys
 mount --rbind /dev /mnt/gentoo/dev
 mount --make-rslave /mnt/gentoo/dev 
-
-
+}
 
 chroot /mnt/gentoo /bin/bash
+
+label2(){
+
 source /etc/profile
 export PS1="(chroot) ${PS1}"
 
@@ -121,4 +127,7 @@ emerge net-wireless/iw net-wireless/wpa_supplicant
 
 echo 'GRUB_PLATFORMS="efi-64"' >> /etc/portage/make.conf
 emerge sys-boot/grub:2
+}
 
+if [ "$rd" == "1" ]; then label1; fi
+if [ "$rd" == "2" ]; then label2; fi
