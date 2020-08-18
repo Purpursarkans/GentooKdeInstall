@@ -30,9 +30,9 @@ label1(){
   echo w;
 ) | fdisk /dev/sda
 
-mkfs.fat -F 32 /dev/sda2
-mkfs.ext4 /dev/sda3
-mount /dev/sda3 /mnt/gentoo
+mkfs.fat -F 32 /dev/sda5
+mkfs.ext4 /dev/sda6
+mount /dev/sda6 /mnt/gentoo
 
 ntpd -q -g
 
@@ -57,14 +57,13 @@ mount --rbind /dev /mnt/gentoo/dev
 mount --make-rslave /mnt/gentoo/dev 
 }
 
-chroot /mnt/gentoo /bin/bash
 
 label2(){
 
 source /etc/profile
-export PS1="(chroot) ${PS1}"
+#export PS1="(chroot) ${PS1}"
 
-mount /dev/sda2 /boot
+mount /dev/sda5 /boot
 emerge-webrsync
 emerge --sync --quiet
 
@@ -72,9 +71,7 @@ eselect profile set 20
 eselect profile list
 
 echo -e "WARNING!!!\ninstall sleep for 30 sec, check list"
-sleep 30
-
-emerge --verbose --update --deep --newuse @world
+sleep 10
 
 echo "Europe/Saratov" > /etc/timezone
 emerge --config sys-libs/timezone-data
@@ -88,6 +85,10 @@ eselect locale list
 echo -e "WARNING!!!\ninstall sleep for 30 sec, check list"
 sleep 30
 
+
+emerge --verbose --update --deep --newuse @world
+
+
 env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
 loadkeys ru
 setfont cyr-sun16
@@ -95,12 +96,11 @@ setfont cyr-sun16
 echo -e "ACCEPT_LICENSE=\"-* @BINARY-REDISTRIBUTABLE\"" >> /etc/portage/make.conf
 
 emerge sys-kernel/gentoo-sources sys-kernel/linux-firmware sys-kernel/genkernel
-emerge --verbose --update --deep --newuse @world
 
-echo -e "/dev/sda2	/boot	vfat	defaults	0 2" >> /etc/fstab
+echo -e "/dev/sda5	/boot	vfat	defaults,noatime	0 2\n" >> /etc/fstab
 genkernel all
 
-echo -e "/dev/sda2   /boot        ext2    defaults,noatime     0 2\n/dev/sda3   /            ext4    noatime              0 1" >> /etc/fstab
+echo -e "/dev/sda6   /            ext4    noatime              0 1" >> /etc/fstab
 
 rm -f /etc/conf.d/hostname
 echo -e "hostname=\"potato-pc\"" >> /etc/conf.d/hostname
