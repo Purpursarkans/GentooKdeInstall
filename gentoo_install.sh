@@ -36,6 +36,8 @@ mount /dev/sda6 /mnt/gentoo
 
 ntpd -q -g
 
+cp JvbMD /mnt/gentoo/JvbMD
+
 cd /mnt/gentoo
 
 wget $url/$archive
