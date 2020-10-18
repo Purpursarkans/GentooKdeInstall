@@ -72,8 +72,7 @@ emerge --sync --quiet
 eselect profile set 20
 eselect profile list
 
-echo -e "WARNING!!!\ninstall sleep for 30 sec, check list"
-sleep 10
+
 
 echo "Europe/Saratov" > /etc/timezone
 emerge --config sys-libs/timezone-data
@@ -84,8 +83,6 @@ locale-gen
 eselect locale set 5
 eselect locale list
 
-echo -e "WARNING!!!\ninstall sleep for 30 sec, check list"
-sleep 30
 
 
 emerge --verbose --update --deep --newuse @world
